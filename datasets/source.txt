@@ -1,0 +1,5 @@
+All data contained in this directory and its subdirectories is published with GNU LGPL license by Florida State University.
+https://people.sc.fsu.edu/~jburkardt/datasets/cities/cities.html
+
+
+The data was downloaded on 15 april 2019.

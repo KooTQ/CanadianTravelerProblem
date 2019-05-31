@@ -1,5 +1,5 @@
 import numpy as np
-from heuristics.probability_functions import random
+from heuristics_and_algorithms.probability_functions import random
 
 prob_function = random
 input_path = "C:\\Uczelnia\\SI2\\CanadianTravelerProblem\\datasets\\kn57\\kn57_"

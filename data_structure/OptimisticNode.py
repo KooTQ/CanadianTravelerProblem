@@ -15,8 +15,8 @@ class OptimisticNode(Node):
 
     def add_edge(self, node, distance, probability):
         edge = OptimisticEdge(node, distance, probability)
-        if all(map(lambda a: a.get_end_node() != edge.get_end_node(), self.edges)):
-            self.edges.append(edge)
+        if all(map(lambda a: a.get_end_node() != edge.get_end_node(), self.output_edges)):
+            self.output_edges.append(edge)
         else:
             print("Already connected!")
 

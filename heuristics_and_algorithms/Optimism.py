@@ -38,17 +38,19 @@ def keep_going(start, finish):
             viable_nodes = new_start.get_nodes()
             final_route.append(new_start)
 
+        tag = False
         while finish not in viable_nodes:
-            # return (-1, "No connection")
+            if tag:
+                return -1, "No connection"
             new_start.set_start()
             edges = new_start.get_edges()
             viable_nodes = get_nodes(new_start, edges)
+            tag = True
         reset_all_nodes(viable_nodes)
         new_start.set_start()
         dijkstra_route = dijkstra(finish, edges, viable_nodes)
         dijkstra_route.append(new_start)
         dijkstra_route.reverse()
-        print(dijkstra_route, final_route)
 
     total_cost = count_total_cost(final_route)
 
@@ -82,10 +84,14 @@ def rechecking(start, finish):
             new_start = dijkstra_route[1]
         viable_nodes = []
         edges = []
+        tag = False
         while finish not in viable_nodes:
+            if tag:
+                return -1, "No connection"
             new_start.set_start()
             edges = new_start.get_edges()
             viable_nodes = get_nodes(new_start, edges)
+            tag = True
 
         reset_all_nodes(viable_nodes)
         new_start.set_start()
@@ -93,7 +99,6 @@ def rechecking(start, finish):
         dijkstra_route.append(new_start)
         dijkstra_route.reverse()
         final_route.append(new_start)
-        print(dijkstra_route, final_route)
 
     total_cost = count_total_cost(final_route)
 
